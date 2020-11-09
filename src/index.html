@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day4</title>
+  
+</head>
+<body class = "body">
+    <div id="app">
+      
+        <table class="table">
+			
+            <tr v-for="item in students"  v-bind:key="item.id"> 
+                <td>{{ item.name }}</td><td>{{item.group}}</td><td>{{ item.mark}}</td><td><input type="checkbox" v-model="item.isDonePr"></td>
+                <td><a href = "#" @click="RemoveStud(item.id)">Удалить</a></td>
+			</tr>
+			
+        </table>
+        
+        <div class = "search">
+			
+			<input placeholder="ФИО" type="text" v-model = "s.name" >
+			
+            <select  v-model="s.group" >
+                <option disabled value="RPZ 17 1/9">Выбирети группу</option>
+                <option value="RPZ 17 1/9">РПЗ 17 1/9</option>
+                <option value="RPZ 17 2/9">РПЗ 17 2/9</option>
+			</select>
+			
+            <input placeholder="Оценка" type="number" v-model = "s.mark">
+            <input type = "checkbox" v-model = "s.isDonePr">Выполнил пр
+			<button v-on:click="add()">добавить</button>
+		
+			
+				<input placeholder="Поиск" type="text" v-model = "search">
+			<button v-on:click = "SearchStud()">Поиск</button>
+			</div>
+		</div>
+	
+	</div>
+	
+	<div id="curse" >
+		<center><h2>Курс Валют</h2></center> 
+		<span>Введите сумму</span><input type="number" v-model = "currency"> <br>
+		<span>Из</span>
+		<select  v-model = "Val">
+			<option v-for="item in conver" :value="item.buy">{{ item.ccy }}</option>
+		</select>
+		<span>В</span>
+		<select v-model = "ValConvert">
+			<option v-for="item in conver" :value="item.buy">{{ item.ccy }}</option>
+		</select>
+		<button v-on:click="calculate()">Конвертировать</button>
+		<h3 v-if="converted">{{ res }}</h3>
+	</div>
+   
+
+	  <script src="main.js" defer></script>
+	  <style>
+		  body{
+			  background-color: indianred;
+		  }
+        .search{
+            width: max-content;
+            margin-left: auto;
+            margin-right: auto;
+            vertical-align: middle;
+            margin-bottom: 0.5em;
+        }
+        .table{
+            border: 1px solid green;
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 45rem;
+            margin: 1em auto;
+            overflow: auto;
+            background-color: #fff;
+            box-shadow: 0px 0.25rem 1rem rgba(0,0,0,0.25);
+        }
+        th, td {
+            max-width: 50%;
+            border: 2px solid;
+        }
+		.red{
+            color: red;
+        }
+        .black{
+            color: black;
+        }
+		#curse{
+			width: max-content;
+            margin-left: auto;
+            margin-right: auto;
+		}
+    </style>
+</body>
+</html>
