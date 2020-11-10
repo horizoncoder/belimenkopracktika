@@ -3,62 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Day4</title>
-  
-</head>
-<body class = "body">
-    <div id="app">
-      
-        <table class="table">
-			
-            <tr v-for="item in students"  v-bind:key="item.id"> 
-                <td>{{ item.name }}</td><td>{{item.group}}</td><td>{{ item.mark}}</td><td><input type="checkbox" v-model="item.isDonePr"></td>
-                <td><a href = "#" @click="RemoveStud(item.id)">Удалить</a></td>
-			</tr>
-			
-        </table>
-        
-        <div class = "search">
-			
-			<input placeholder="ФИО" type="text" v-model = "s.name" >
-			
-            <select  v-model="s.group" >
-                <option disabled value="RPZ 17 1/9">Выбирети группу</option>
-                <option value="RPZ 17 1/9">РПЗ 17 1/9</option>
-                <option value="RPZ 17 2/9">РПЗ 17 2/9</option>
-			</select>
-			
-            <input placeholder="Оценка" type="number" v-model = "s.mark">
-            <input type = "checkbox" v-model = "s.isDonePr">Выполнил пр
-			<button v-on:click="add()">добавить</button>
-		
-			
-				<input placeholder="Поиск" type="text" v-model = "search">
-			<button v-on:click = "SearchStud()">Поиск</button>
-			</div>
-		</div>
-	
-	</div>
-	
-	<div id="curse" >
-		<center><h2>Курс Валют</h2></center> 
-		<span>Введите сумму</span><input type="number" v-model = "currency"> <br>
-		<span>Из</span>
-		<select  v-model = "Val">
-			<option v-for="item in conver" :value="item.buy">{{ item.ccy }}</option>
-		</select>
-		<span>В</span>
-		<select v-model = "ValConvert">
-			<option v-for="item in conver" :value="item.buy">{{ item.ccy }}</option>
-		</select>
-		<button v-on:click="calculate()">Конвертировать</button>
-		<h3 v-if="converted">{{ res }}</h3>
-	</div>
-   
-
-	  <script src="main.js" defer></script>
-	  <style>
-		  body{
+    <title>Day 2</title>
+    <style>
+        body{
 			  background-color: indianred;
 		  }
         .search{
@@ -94,5 +41,12 @@
             margin-right: auto;
 		}
     </style>
+</head>
+<body class = "body">
+    <div id="app"> </div>
+    
+    <div id="converter"></div>
+
+    <script src="main.js"></script>
 </body>
 </html>
