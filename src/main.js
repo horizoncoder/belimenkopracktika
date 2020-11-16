@@ -6,6 +6,7 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 import Students from './components/Students.vue'
 import StudentInfo from './components/StudentInfo.vue'
+import store from './store.js'
 
 
  
@@ -24,7 +25,8 @@ const routes = [
  new Vue({
     render: h => h(App),
     el: '#app',
-    router
+    router,
+    store
  })
  
 
