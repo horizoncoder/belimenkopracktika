@@ -1,12 +1,13 @@
    <template>
    
    <div class="main page">
-            
+            <router-link v-bind:to="'/student-edit/'+item._id"></router-link>
         
        <h3 class = "search">Фото студента</h3>
+       
       <div>
            <img v-bind:src="student.photo" width = "500px" height = "500px" @click="showModal">
-            
+             
       </div>
          <h3>{{ student.name }}</h3>
 <modal-window ref="modal"></modal-window>
@@ -41,6 +42,11 @@
                 this.$refs.modal.show = true
                 this.$refs.modal.photo = this.student.photo
             },
+              computed: {
+                getCurrentUser () {
+                return this.$store.getters.getUser
+                            }
+                },
         }
     }
 </script>

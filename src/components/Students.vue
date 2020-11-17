@@ -63,11 +63,14 @@
             
         },
         
-        computed: {
-  studentsCount () {
-    return this.$store.getters.getCount
-  }
-},
+                        computed: {
+                studentsCount () {
+                    return this.$store.getters.getCount
+                },
+                getCurrentUser () {
+                return this.$store.getters.getUser
+                            }
+                },
 
         methods: {
             removeStud: function(id){

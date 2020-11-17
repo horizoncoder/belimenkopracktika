@@ -6,10 +6,12 @@ const store = new Vuex.Store({
     plugins: [createpersistedstateStage()],
     state:{
         count:0,
+        user: null
     },
     mutations:{
         setCount: (state, count) => state.count = count,
         setStyle: (state, style) => state.style = style,
+        setUser: (state, user) => state.user = user,
 
     },
     getters:{
@@ -19,7 +21,11 @@ const store = new Vuex.Store({
         getStyle: (state) =>
         {
           return state.style
-        }
+        },
+        getUser: (state) =>
+        {
+          return state.user
+        },
     }
 })
 export default store;
