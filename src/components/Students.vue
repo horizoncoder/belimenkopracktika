@@ -4,7 +4,7 @@
         <table class="table">
             <tr v-for="item in students"  v-bind:key="item._id"> 
                 <td><router-link v-bind:to="'/student-info/'+item._id"> {{item.name}}</router-link></td><td><input type="checkbox" v-model="item.isDonePr"></td><td>{{item.group}}</td><td>{{ item.mark}}</td>
-                <td><a href = "#" @click="removeStud(item._id)">Удалить</a></td>
+                <td><a href = "#" v-on:click.prevent = "removeStud(item._id)" v-show = "item.group == getCurrentUser.group">Удалить</a></td>
                 <td v-if = "item.name != search"><a href = "#" @click="changeValue(item.name)">Изменить</a></td>
                 <td v-if = "item.name == search">
                     <a href = "#" @click="changeStud(item._id)">Изменино</a>
